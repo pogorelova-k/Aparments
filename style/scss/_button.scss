@@ -1,0 +1,61 @@
+.t-header__button {
+    position: relative;
+}
+
+.arrow {
+    margin-left: 8px;
+}
+
+.arrow {
+    &::before, &::after {
+        border-style: solid;
+        border-width: 0.10em 0.10em 0 0;
+        content: '';
+        display: inline-block;
+        height: 0.35em;
+        position: absolute;
+        transform: rotate(-45deg);
+        vertical-align: top;
+        width: 0.35em;
+        // color: rgba(11, 23, 57, 0.5)
+        opacity: 0.4;
+    }
+}
+
+.arrow::before {
+    transform: rotate(135deg);
+    top: 45%;
+}
+
+.arrow::after {
+    transform: rotate(-45deg);
+    top: 25%;
+}
+
+.t-header__button:hover {
+    .arrow {
+        &::before,
+        &::after {
+            color: $secondary-color;
+            opacity: 1;
+        }
+    }
+    
+}
+
+.t-header__button_active {
+    color: $secondary-color;
+    opacity: 1;
+    .arrow-top_active {
+        &::after {
+            color: $secondary-color;
+            opacity: 1;
+        }
+
+        &::before {
+            color: $primary-color;
+            opacity: 0.4;
+        }
+    }
+}
+

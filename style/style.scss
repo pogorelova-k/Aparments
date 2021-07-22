@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'PTRootUIWebBold';
+    src: url('/fonts/PT-Root-UI_Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PTRootUIWebMedium';
+    src: url('/fonts/PT-Root-UI_Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PTRootUIWebRegular';
+    src: url('/fonts/PT-Root-UI_Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import './scss/secondary';
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    @include reset;
+    @include ff-regular;
+    font-size: $fz;
+    line-height: $lh;
+    color: $primary-color;
+    background-color: $b-color;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+ol {
+    @include reset;
+    list-style: none;
+}
+
+h1,
+h2,
+h3 {
+    @include reset;
+    @include ff-bold;
+}
+
+p {
+    @include reset;
+}
+
+input {
+    font: inherit;
+    cursor: pointer;
+    border: none;
+}
+
+button {
+    @extend input;
+    @include reset;
+    border: none;
+    background-color: $b-color;
+    cursor: pointer;
+}
+
+@import './scss/content';
+@import './scss/result';
+@import './scss/filter';
+@import './scss/button';
+

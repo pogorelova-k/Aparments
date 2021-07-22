@@ -1,0 +1,27 @@
+$primary-color: #0B1739;
+$secondary-color: #3EB57C;
+$b-color: #fff;
+$fz: 16px;
+$lh: 24px;
+
+@mixin reset {
+    margin: 0;
+    padding: 0;
+}
+
+@mixin ff-regular {
+    font-family: 'PTRootUIWebRegular', sans-serif;
+}
+
+@mixin ff-bold {
+    font-family: 'PTRootUIWebBold', sans-serif;
+}
+@mixin ff-medium {
+    font-family: 'PTRootUIWebMedium', sans-serif;
+}
+
+@mixin flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

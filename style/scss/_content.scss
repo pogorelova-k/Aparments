@@ -1,0 +1,12 @@
+@import './secondary';
+.container {
+    display: block;
+    width: 1280px;
+    padding: 96px 0;
+    margin: 0 auto;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;  
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квартиры</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="./src/index.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="result content__result">
+            <h1 class="result__title">Квартиры</h1>
+            <div class="table result__table">
+                <div class="t-header table__header">
+                    <ul class="t-header__list">
+                        <li>
+                            <ul class="t-header__left">
+                                <li>Планировка</li>
+                                <li>Квартира</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="t-header__right">
+                                <li><button class="t-header__button">S, м²<span class="arrow"></span></button></li>
+                                <li><button class="t-header__button">Этаж<span class="arrow"></span></button></li>
+                                <li><button class="t-header__button">Цена, ₽<span class="arrow"></span></button></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.table__header -->
+                <div class="t-body table__body">
+                    <ul class="t-body__list">
+                        <li class="t-body__item">
+                            <div class="t-body__left">
+                                <img src="./image/flat1.svg" alt="Планировка">
+                                <p class="t-body__name">3-комнатная №104</p>
+                            </div>
+                            <div class="t-body__right">
+                                <p class="t-body__square">63,1</p>
+                                <p class="t-body__floor">1 <span>из 17</span></p>
+                                <p class="t-body__price">6 630 500</p></div>
+                        </li>
+                        <li class="t-body__item">
+                            <div class="t-body__left">
+                                <img src="./image/flat1.svg" alt="Планировка">
+                                <p class="t-body__name">3-комнатная №105</p>
+                            </div>
+                            <div class="t-body__right">
+                                <p class="t-body__square">63,2</p>
+                                <p class="t-body__floor">2 <span>из 17</span></p>
+                                <p class="t-body__price">6 630 500</p></div>
+                        </li>
+                        <li class="t-body__item">
+                            <div class="t-body__left">
+                                <img src="./image/flat1.svg" alt="Планировка">
+                                <p class="t-body__name">3-комнатная №106</p>
+                            </div>
+                            <div class="t-body__right">
+                                <p class="t-body__square">63,2</p>
+                                <p class="t-body__floor">3 <span>из 17</span></p>
+                                <p class="t-body__price">6 650 759</p></div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- ./table__body -->
+            </div>
+            <!-- ./table -->
+            <button class="result__button button">Зарузить ещё</button>
+            </div>
+            <!-- /.result -->
+            <div class="filter content__filter">
+                форма
+            </div>
+            <!-- /.filter -->
+            </div>
+        <!-- /.content -->
+    </div>
+</body>
+</html>
