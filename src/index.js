@@ -2,9 +2,11 @@ import nouislider from './modules/nouislider';
 import slider from './modules/slider';
 import secondary from './modules/secondary';
 import scroll from './modules/scroll';
-import render from './modules/render';
+import renderCrossSell from './modules/render';
+import sendForm from './modules/sendForm';
 
-render();
+renderCrossSell();
 slider();
 secondary();
 scroll();
+sendForm();

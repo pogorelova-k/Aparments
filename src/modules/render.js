@@ -20,7 +20,7 @@ const getData = (url, callback) => {
 };
 
 // фукция рендера элементов
-const render = () => {
+const renderCrossSell = () => {
     const crossSellList = document.querySelector('.t-body__list'),
         crossSellAdd = document.querySelector('.result__button');
     const allGoods = [];
@@ -88,4 +88,4 @@ const render = () => {
     getData('db.json', createCrossSellList);
 };
 
-export default render;
+export default renderCrossSell;
