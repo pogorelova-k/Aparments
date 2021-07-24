@@ -17,7 +17,6 @@
         transform: rotate(-45deg);
         vertical-align: top;
         width: 0.35em;
-        // color: rgba(11, 23, 57, 0.5)
         opacity: 0.4;
     }
 }
@@ -46,6 +45,7 @@
 .t-header__button_active {
     color: $secondary-color;
     opacity: 1;
+    @include ff-medium;
     .arrow-top_active {
         &::after {
             color: $secondary-color;
@@ -59,3 +59,84 @@
     }
 }
 
+.result__button {
+    @include ff-medium;
+    padding: 8px 24px;
+    border: 1px solid rgba(11, 23, 57, 0.2);
+    border-radius: 25px;
+    outline: none;
+}
+
+.result__button_active {
+    transition: background 0.2s ease;
+    &:active {
+        @include dark-theme;
+    }
+
+    &:hover {
+        @include dark-theme;
+    }
+}
+
+.reset {
+    position: relative;
+    font-size: $fz - 2;
+    line-height: $lh - 2;
+    background: transparent;
+    // padding: 0px 16px 7px;
+    padding-left: 16px;
+
+    span {
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -20%;
+            width: 10.45px;
+            height: 1.73px;
+            background-color: #000;
+            transition: 0.5s;
+        }
+
+        &::after {
+            @include rotate(45);
+        }
+
+        &::before {
+            @include rotate(-45);
+        }
+    }
+
+    &:hover {
+        span {
+            &::after {
+                @include rotate(225);
+            }
+
+            &::before {
+                @include rotate(135);
+            }
+        }
+    }
+}
+
+.topUp {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    .topUp__button {
+        width: 40px;
+        height: 40px;
+        background: #95D0A1;
+        border-radius: 100px;
+        position: relative;
+    }
+
+    img {
+        position: absolute;
+        top: 11px;
+        right: 11px;
+        
+    }
+}

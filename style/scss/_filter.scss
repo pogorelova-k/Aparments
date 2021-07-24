@@ -1,6 +1,98 @@
 .filter {
-    max-width: 399px;
+    width: 399px;
     height: 372px;
     padding: 40px;
-    border: 1px solid black;
+    background: $light-secondary-color;
+    border-radius: 10px;
+}
+
+.rooms__item {
+    display: inline-block;
+    margin-right: 16px;
+    user-select: none;
+    position: relative;
+
+    span {
+        display: inline-block;
+        cursor: pointer;
+        padding: 10px 12px;
+        border-radius: 100px;
+        width: 44px;
+        height: 44px;
+        transition: background 0.2s ease;
+        text-align: center; 
+        background: #F9F9F9;
+        color: $primary-color;
+    }
+
+    input[type=checkbox] {
+        z-index: -1;
+        opacity: 0;
+        display: block;
+        width: 0;
+        height: 0;
+
+        &:checked+span {
+            @include dark_theme;
+        }
+
+        &:hover+span {
+            @include dark_theme;
+        }
+    }
+}
+
+.rooms__item_disabled {
+    input[type=checkbox] {
+        &:disabled+span {
+            cursor: auto;
+            background: $b-color;
+            color: transparentize($primary-color, 0.8);
+            box-shadow: none;
+        }
+    }
+}
+
+.range {
+    margin: 24px 0;
+    .range__title {
+        font-size: $fz - 2;
+        line-height: $lh - 4;
+    }
+    input {
+        background: transparent;
+    }
+
+    span {
+        color: transparentize($primary-color, 0.5);
+    }
+}
+
+.range__value {
+    padding: 5px;
+    width: 120px;
+    margin: 0px 8px 12px;
+    outline: none;
+    @include ff-medium;
+}
+
+.range__value+span {
+    width: 50%;
+}
+
+@media screen and (max-width: 960px) {
+    // $fz: 14px;
+    .filter {
+        width: 318px;
+        height: 328px;
+        padding: 20px 19px;
+    }
+    
+    .range__title {
+        font-size: $fz - 3;
+    }
+
+    .range__value {
+        margin: 0 0 12px;
+    }
 }

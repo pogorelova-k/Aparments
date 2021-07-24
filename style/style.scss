@@ -38,6 +38,7 @@ body {
     line-height: $lh;
     color: $primary-color;
     background-color: $b-color;
+    position: relative;
 }
 
 img {
@@ -84,5 +85,6 @@ button {
 @import './scss/content';
 @import './scss/result';
 @import './scss/filter';
+@import './scss/range';
 @import './scss/button';
 

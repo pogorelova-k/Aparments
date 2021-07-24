@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Квартиры</title>
     <link rel="stylesheet" href="./style/style.css">
-    <script src="./src/index.js" defer></script>
+    <script src="./dist/bundle.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -26,6 +26,7 @@
                             <ul class="t-header__right">
                                 <li><button class="t-header__button">S, м²<span class="arrow"></span></button></li>
                                 <li><button class="t-header__button">Этаж<span class="arrow"></span></button></li>
+                                <li><button class="t-header__button t-header__button_hide">Сдача<span class="arrow"></span></button></li>
                                 <li><button class="t-header__button">Цена, ₽<span class="arrow"></span></button></li>
                             </ul>
                         </li>
@@ -69,15 +70,59 @@
                 <!-- ./table__body -->
             </div>
             <!-- ./table -->
-            <button class="result__button button">Зарузить ещё</button>
+            <button class="result__button result__button_active button">Зарузить ещё</button>
             </div>
             <!-- /.result -->
-            <div class="filter content__filter">
-                форма
-            </div>
+            <form class="filter content__filter">
+                <div class="filter__rooms rooms">
+                    <div class="rooms__list">
+                        <label class="rooms__item">
+                            <input type="checkbox" name="1к">
+                            <span>1к</span>
+                        </label>
+                        <label class="rooms__item">
+                            <input type="checkbox" name="2к">
+                            <span>2к</span>
+                        </label>
+                        <label class="rooms__item">
+                            <input type="checkbox" name="3к">
+                            <span>3к</span>
+                        </label>
+                        <label class="rooms__item rooms__item_disabled">
+                            <input type="checkbox" name="4к">
+                            <span>4к</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="range filter__range">
+                    <p class="range__title">Стомость квартиры, ₽</p>
+                    <span>от</span>
+                    <input class="range__value" type="text" id="input-price-low">
+                    <span>до</span>
+                    <input class="range__value" type="text" id="input-price-high">
+                    <div id="slider-price" class="range__slider"></div>
+                </div>
+
+                <div class="range filter__square">
+                    <p class="range__title">Площадь, м²</p>
+                    <span>от</span>
+                    <input class="range__value" type="text" id="input-square-low">
+                    <span>до</span>
+                    <input class="range__value" type="text" id="input-square-high">
+                    <div id="slider-square" class="range__slider"></div>
+                </div>
+                <div class="filter__reset">
+                    <button class="reset">Сбросить всё <span></span></button>
+                </div>
+            </form>
             <!-- /.filter -->
-            </div>
+        </div>
         <!-- /.content -->
+    </div>
+    <div class="topUp">
+        <button class="topUp__button">
+            <img class="topUp__image" src="./image/Vector.svg" alt="стрелка вверх">
+        </button>
     </div>
 </body>
 </html>

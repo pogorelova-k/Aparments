@@ -2,11 +2,18 @@
 .container {
     display: block;
     width: 1280px;
-    padding: 96px 0;
+    padding: 96px 0px;
     margin: 0 auto;
 }
 
 .content {
     display: flex;
     justify-content: space-between;  
+}
+
+@media screen and (max-width: 960px) {
+    .container {
+        padding: 48px 6px;
+        width: 852px;
+    }
 }

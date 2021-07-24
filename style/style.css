@@ -30,10 +30,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'PTRootUIWebRegular', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
-  color: #0B1739;
+  color: #0b1739;
   background-color: #fff;
+  position: relative;
 }
 
 img {
@@ -83,7 +84,7 @@ button {
 .container {
   display: block;
   width: 1280px;
-  padding: 96px 0;
+  padding: 96px 0px;
   margin: 0 auto;
 }
 
@@ -92,12 +93,18 @@ button {
   justify-content: space-between;
 }
 
+@media screen and (max-width: 960px) {
+  .container {
+    padding: 48px 6px;
+    width: 852px;
+  }
+}
 .result {
   width: 801px;
 }
 
 .result__title {
-  font-size: 54px;
+  font-size: 52px;
   line-height: 55px;
 }
 
@@ -106,7 +113,7 @@ button {
 }
 .table .table__header {
   padding-bottom: 16px;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 20px;
   box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
@@ -137,6 +144,10 @@ button {
   text-align: left;
 }
 
+.t-header__button_hide {
+  display: none;
+}
+
 .t-body__right {
   display: flex;
   justify-content: space-between;
@@ -160,11 +171,470 @@ button {
   padding: 0 7px;
 }
 
+@media screen and (max-width: 960px) {
+  .result {
+    width: 506px;
+  }
+
+  .t-header__left {
+    display: none;
+  }
+
+  .t-header__right {
+    justify-content: start;
+  }
+  .t-header__right button {
+    width: 70px;
+  }
+
+  .t-header__button_hide {
+    display: flex;
+  }
+
+  .t-body__list .t-body__item {
+    flex-direction: column;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: none;
+    padding: 24px 16px;
+    margin-bottom: 4px;
+  }
+  .t-body__list .t-body__right {
+    justify-content: start;
+    margin-top: 16px;
+  }
+  .t-body__list .t-body__right p {
+    width: 96px;
+  }
+  .t-body__list .t-body__left img {
+    position: absolute;
+    right: 0;
+  }
+
+  .table .table__header {
+    box-shadow: none;
+    font-size: 14px;
+  }
+}
 .filter {
-  max-width: 399px;
+  width: 399px;
   height: 372px;
   padding: 40px;
-  border: 1px solid black;
+  background: linear-gradient(135deg, rgba(174, 228, 178, 0.3) 0%, rgba(149, 208, 161, 0.3) 100%);
+  border-radius: 10px;
+}
+
+.rooms__item {
+  display: inline-block;
+  margin-right: 16px;
+  user-select: none;
+  position: relative;
+}
+.rooms__item span {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 100px;
+  width: 44px;
+  height: 44px;
+  transition: background 0.2s ease;
+  text-align: center;
+  background: #F9F9F9;
+  color: #0b1739;
+}
+.rooms__item input[type=checkbox], .rooms__item button[type=checkbox] {
+  z-index: -1;
+  opacity: 0;
+  display: block;
+  width: 0;
+  height: 0;
+}
+.rooms__item input[type=checkbox]:checked + span, .rooms__item button[type=checkbox]:checked + span {
+  background: #3EB57C;
+  color: #fff;
+  box-shadow: 0px 6px 20px #95D0A1;
+}
+.rooms__item input[type=checkbox]:hover + span, .rooms__item button[type=checkbox]:hover + span {
+  background: #3EB57C;
+  color: #fff;
+  box-shadow: 0px 6px 20px #95D0A1;
+}
+
+.rooms__item_disabled input[type=checkbox]:disabled + span, .rooms__item_disabled button[type=checkbox]:disabled + span {
+  cursor: auto;
+  background: #fff;
+  color: rgba(11, 23, 57, 0.2);
+  box-shadow: none;
+}
+
+.range {
+  margin: 24px 0;
+}
+.range .range__title {
+  font-size: 12px;
+  line-height: 20px;
+}
+.range input, .range button {
+  background: transparent;
+}
+.range span {
+  color: rgba(11, 23, 57, 0.5);
+}
+
+.range__value {
+  padding: 5px;
+  width: 120px;
+  margin: 0px 8px 12px;
+  outline: none;
+  font-family: 'PTRootUIWebMedium', sans-serif;
+}
+
+.range__value + span {
+  width: 50%;
+}
+
+@media screen and (max-width: 960px) {
+  .filter {
+    width: 318px;
+    height: 328px;
+    padding: 20px 19px;
+  }
+
+  .range__title {
+    font-size: 11px;
+  }
+
+  .range__value {
+    margin: 0 0 12px;
+  }
+}
+/* Functional styling;
+ * These styles are required for noUiSlider to function.
+ * You don't need to change these rules to apply your design.
+ */
+.noUi-target,
+.noUi-target * {
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-select: none;
+  -ms-touch-action: none;
+  touch-action: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.noUi-target {
+  position: relative;
+}
+
+.noUi-base,
+.noUi-connects {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Wrapper for all connect elements.
+ */
+.noUi-connects {
+  overflow: hidden;
+  z-index: 0;
+}
+
+.noUi-connect,
+.noUi-origin {
+  will-change: transform;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  -ms-transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  -webkit-transform-style: preserve-3d;
+  transform-origin: 0 0;
+  transform-style: flat;
+}
+
+.noUi-connect {
+  height: 100%;
+  width: 100%;
+}
+
+.noUi-origin {
+  height: 10%;
+  width: 10%;
+}
+
+/* Offset direction
+ */
+.noUi-txt-dir-rtl.noUi-horizontal .noUi-origin {
+  left: 0;
+  right: auto;
+}
+
+/* Give origins 0 height/width so they don't interfere with clicking the
+ * connect elements.
+ */
+.noUi-vertical .noUi-origin {
+  width: 0;
+}
+
+.noUi-horizontal .noUi-origin {
+  height: 0;
+}
+
+.noUi-handle {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+}
+
+.noUi-touch-area {
+  height: 100%;
+  width: 100%;
+}
+
+.noUi-state-tap .noUi-connect,
+.noUi-state-tap .noUi-origin {
+  -webkit-transition: transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.noUi-state-drag * {
+  cursor: inherit !important;
+}
+
+/* Slider size and handle placement;
+ */
+.noUi-horizontal {
+  height: 3px;
+}
+
+.noUi-horizontal .noUi-handle {
+  width: 14px;
+  height: 14px;
+  right: -1px;
+  top: -6px;
+}
+
+.noUi-vertical {
+  width: 18px;
+}
+
+.noUi-vertical .noUi-handle {
+  width: 28px;
+  height: 34px;
+  right: -6px;
+  top: -17px;
+}
+
+.noUi-txt-dir-rtl.noUi-horizontal .noUi-handle {
+  left: -17px;
+  right: auto;
+}
+
+/* Styling;
+ * Giving the connect element a border radius causes issues with using transform: scale
+ */
+.noUi-target {
+  background: rgba(11, 23, 57, 0.1);
+  border-radius: 1.5px;
+}
+
+.noUi-connects {
+  border-radius: 3px;
+}
+
+.noUi-connect {
+  background: #3EB57C;
+}
+
+/* Handles and cursors;
+ */
+.noUi-draggable {
+  cursor: ew-resize;
+}
+
+.noUi-vertical .noUi-draggable {
+  cursor: ns-resize;
+}
+
+.noUi-handle {
+  border-radius: 50%;
+  background: #3EB57C;
+  cursor: default;
+}
+
+/* Disabled state;
+ */
+[disabled] .noUi-connect {
+  background: #B8B8B8;
+}
+
+[disabled].noUi-target,
+[disabled].noUi-handle,
+[disabled] .noUi-handle {
+  cursor: not-allowed;
+}
+
+/* Base;
+ *
+ */
+.noUi-pips,
+.noUi-pips * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.noUi-pips {
+  position: absolute;
+  color: #999;
+}
+
+/* Values;
+ *
+ */
+.noUi-value {
+  position: absolute;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.noUi-value-sub {
+  color: #ccc;
+  font-size: 10px;
+}
+
+/* Markings;
+ *
+ */
+.noUi-marker {
+  position: absolute;
+  background: #CCC;
+}
+
+.noUi-marker-sub {
+  background: #AAA;
+}
+
+.noUi-marker-large {
+  background: #AAA;
+}
+
+/* Horizontal layout;
+ *
+ */
+.noUi-pips-horizontal {
+  padding: 10px 0;
+  height: 80px;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+
+.noUi-value-horizontal {
+  -webkit-transform: translate(-50%, 50%);
+  transform: translate(-50%, 50%);
+}
+
+.noUi-rtl .noUi-value-horizontal {
+  -webkit-transform: translate(50%, 50%);
+  transform: translate(50%, 50%);
+}
+
+.noUi-marker-horizontal.noUi-marker {
+  margin-left: -1px;
+  width: 2px;
+  height: 5px;
+}
+
+.noUi-marker-horizontal.noUi-marker-sub {
+  height: 10px;
+}
+
+.noUi-marker-horizontal.noUi-marker-large {
+  height: 15px;
+}
+
+/* Vertical layout;
+ *
+ */
+.noUi-pips-vertical {
+  padding: 0 10px;
+  height: 100%;
+  top: 0;
+  left: 100%;
+}
+
+.noUi-value-vertical {
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  padding-left: 25px;
+}
+
+.noUi-rtl .noUi-value-vertical {
+  -webkit-transform: translate(0, 50%);
+  transform: translate(0, 50%);
+}
+
+.noUi-marker-vertical.noUi-marker {
+  width: 5px;
+  height: 2px;
+  margin-top: -1px;
+}
+
+.noUi-marker-vertical.noUi-marker-sub {
+  width: 10px;
+}
+
+.noUi-marker-vertical.noUi-marker-large {
+  width: 15px;
+}
+
+.noUi-tooltip {
+  display: block;
+  position: absolute;
+  border: 1px solid #D9D9D9;
+  border-radius: 3px;
+  background: #fff;
+  color: #000;
+  padding: 5px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.noUi-horizontal .noUi-tooltip {
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  left: 50%;
+  bottom: 120%;
+}
+
+.noUi-vertical .noUi-tooltip {
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  top: 50%;
+  right: 120%;
+}
+
+.noUi-horizontal .noUi-origin > .noUi-tooltip {
+  -webkit-transform: translate(50%, 0);
+  transform: translate(50%, 0);
+  left: auto;
+  bottom: 10px;
+}
+
+.noUi-vertical .noUi-origin > .noUi-tooltip {
+  -webkit-transform: translate(0, -18px);
+  transform: translate(0, -18px);
+  top: auto;
+  right: 28px;
 }
 
 .t-header__button {
@@ -206,14 +676,85 @@ button {
 .t-header__button_active {
   color: #3EB57C;
   opacity: 1;
+  font-family: 'PTRootUIWebMedium', sans-serif;
 }
 .t-header__button_active .arrow-top_active::after {
   color: #3EB57C;
   opacity: 1;
 }
 .t-header__button_active .arrow-top_active::before {
-  color: #0B1739;
+  color: #0b1739;
   opacity: 0.4;
+}
+
+.result__button {
+  font-family: 'PTRootUIWebMedium', sans-serif;
+  padding: 8px 24px;
+  border: 1px solid rgba(11, 23, 57, 0.2);
+  border-radius: 25px;
+  outline: none;
+}
+
+.result__button_active {
+  transition: background 0.2s ease;
+}
+.result__button_active:active {
+  background: #3EB57C;
+  color: #fff;
+  box-shadow: 0px 6px 20px #95D0A1;
+}
+.result__button_active:hover {
+  background: #3EB57C;
+  color: #fff;
+  box-shadow: 0px 6px 20px #95D0A1;
+}
+
+.reset {
+  position: relative;
+  font-size: 12px;
+  line-height: 22px;
+  background: transparent;
+  padding-left: 16px;
+}
+.reset span::before, .reset span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -20%;
+  width: 10.45px;
+  height: 1.73px;
+  background-color: #000;
+  transition: 0.5s;
+}
+.reset span::after {
+  transform: rotate(45deg);
+}
+.reset span::before {
+  transform: rotate(-45deg);
+}
+.reset:hover span::after {
+  transform: rotate(225deg);
+}
+.reset:hover span::before {
+  transform: rotate(135deg);
+}
+
+.topUp {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+.topUp .topUp__button {
+  width: 40px;
+  height: 40px;
+  background: #95D0A1;
+  border-radius: 100px;
+  position: relative;
+}
+.topUp img {
+  position: absolute;
+  top: 11px;
+  right: 11px;
 }
 
 /*# sourceMappingURL=style.css.map */
