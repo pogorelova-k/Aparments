@@ -2,12 +2,6 @@ const secondary = () => {
     const arrow = document.querySelectorAll('.t-header__button'),
         roomsItems = document.querySelectorAll('.rooms__item');
 
-    // arrow.forEach(item => {
-    //     if (item.textContent === 'Сдача') {
-    //         item.style.display = 'none';
-    //     }
-    // }); 
-
     // активация стрелки сортировки по-возрастанию
     arrow.forEach(item => item.addEventListener('click', () => {
         item.classList.toggle('t-header__button_active');

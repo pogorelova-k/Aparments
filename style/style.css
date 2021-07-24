@@ -740,9 +740,10 @@ button {
 }
 
 .topUp {
-  position: absolute;
-  bottom: 5%;
-  right: 5%;
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  display: none;
 }
 .topUp .topUp__button {
   width: 40px;
